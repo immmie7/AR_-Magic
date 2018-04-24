@@ -32,7 +32,7 @@ class GameViewController: UIViewController{
     }()
     
     @objc func handlePlusButtonTapped() {
-        print(*Tapped on plus button*)
+        print("Tapped on plus button")
     }
     
     let configuration = ARWorldTrackingConfiguration()
