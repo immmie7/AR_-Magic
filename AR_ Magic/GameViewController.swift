@@ -91,6 +91,7 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
         configuration.planeDetection = .vertical
         
         
+        
         //Now we need to add the configuration to our ARview
         arView.session.run(configuration, options: [])
         
