@@ -102,6 +102,11 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
         arView.delegate = self
         
         
+        //Hit Testing stuff
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        arView.addGestureRecognizer(tapGestureRecognizer)
+        
+        
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -214,7 +219,42 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
         removeNode(named: "floor ")
         
     }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        let tappedView = sender.view as! SCNView
+        let touchLocation = sender.location(in: tappedView)
+        let hitTest = tappedView.hitTest(touchLocation, options: nil)
+        if !hitTest.isEmpty { //If it is N0T empty
+            let result = hitTest.first!
+            let name = result.node.name
+            let geometry = result.node.geometry
+            print("Tapped \(String(describing: name)) with geometry: \(String(describing: geometry))")
+            
+        }
+        
+    }
 
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
