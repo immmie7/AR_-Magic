@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		766E48D1AF3BB6F9E7679137 /* Pods_AR__Magic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EDE51D4E5D396A7296FB65 /* Pods_AR__Magic.framework */; };
 		A34AD3AF208E0DF1006F8781 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34AD3AE208E0DF1006F8781 /* Extension.swift */; };
+		A3B74F812099C3A30057E2A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B74F802099C3A30057E2A3 /* Assets.xcassets */; };
 		A3B9FD72208B6F3B00AE9626 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FD71208B6F3B00AE9626 /* AppDelegate.swift */; };
-		A3B9FD79208B6F3B00AE9626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B9FD78208B6F3B00AE9626 /* Assets.xcassets */; };
 		A3B9FD7C208B6F3B00AE9626 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B9FD7A208B6F3B00AE9626 /* LaunchScreen.storyboard */; };
 		A3B9FD84208DD5AA00AE9626 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FD83208DD5AA00AE9626 /* GameViewController.swift */; };
 /* End PBXBuildFile section */
@@ -18,9 +18,9 @@
 /* Begin PBXFileReference section */
 		6275960351C3F0F3EDF84744 /* Pods-AR_ Magic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR_ Magic.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR_ Magic/Pods-AR_ Magic.release.xcconfig"; sourceTree = "<group>"; };
 		A34AD3AE208E0DF1006F8781 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		A3B74F802099C3A30057E2A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		A3B9FD6E208B6F3B00AE9626 /* AR_ Magic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR_ Magic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B9FD71208B6F3B00AE9626 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A3B9FD78208B6F3B00AE9626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3B9FD7B208B6F3B00AE9626 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3B9FD7D208B6F3C00AE9626 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3B9FD83208DD5AA00AE9626 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				A3B9FD71208B6F3B00AE9626 /* AppDelegate.swift */,
-				A3B9FD78208B6F3B00AE9626 /* Assets.xcassets */,
+				A3B74F802099C3A30057E2A3 /* Assets.xcassets */,
 				A3B9FD7A208B6F3B00AE9626 /* LaunchScreen.storyboard */,
 				A3B9FD7D208B6F3C00AE9626 /* Info.plist */,
 				A3B9FD83208DD5AA00AE9626 /* GameViewController.swift */,
@@ -148,8 +148,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3B74F812099C3A30057E2A3 /* Assets.xcassets in Resources */,
 				A3B9FD7C208B6F3B00AE9626 /* LaunchScreen.storyboard in Resources */,
-				A3B9FD79208B6F3B00AE9626 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Imke Beekmans. All rights reserved.
 //  Code from videos of the Rebeloper
 
+//Space textures downloaded from solarystemscope.com
+
 import ARKit
 import LBTAComponents
 
@@ -35,8 +37,21 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func handlePlusButtonTapped() {
         print("Tapped on plus button")
-        addBox()
+        //addBox()
+        var doesEarthNodeExistInScene = false
+        arView.scene.rootNode.enumerateChildNodes { (node, _) in//Makes sure there is only one earth, like real life
+            if node.name == "earth" {
+               doesEarthNodeExistInScene = true
+            }
+        }
+        if !doesEarthNodeExistInScene { //If doesEarthNode does NOT exist in scene
+                    addEarth()
+        }
     }
+    
+    
+    
+    
 // MINUSBUTTON
 // Code for the minusbutton
     
@@ -55,7 +70,7 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func handleMinusButtonTapped() {
         print("Tapped on minus button")
-        removeAllBoxes()
+        removeAllNodes()
     }
 
 // RESETBUTTON
@@ -152,7 +167,7 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    func removeAllBoxes() {
+    func removeAllNodes() {
         arView.scene.rootNode.enumerateChildNodes { (node, _ ) in
             if node.name == "node" {
                 node.removeFromParentNode()
@@ -173,17 +188,17 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
-    //Code to create the floor
-    func createFloor(anchor: ARPlaneAnchor) -> SCNNode {
-        let floor = SCNNode()
-        floor.name = "floor" //The name of the floor is floor
-        floor.eulerAngles = SCNVector3(90.degreesToRadians,0,0) //The floor is rotated
-        floor.geometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z)) //Makes the floor floor(plane)-shaped. The x and the z values are used, cuz that are the ground values (y is up in the air)
-        floor.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "Material")
-        floor.geometry?.firstMaterial?.isDoubleSided = true
-        floor.position = SCNVector3(anchor.center.x, anchor.center.y, anchor.center.z)
-        return floor
-    }
+//    //Code to create the floor
+//    func createFloor(anchor: ARPlaneAnchor) -> SCNNode {
+//        let floor = SCNNode()
+//        floor.name = "floor" //The name of the floor is floor
+//        floor.eulerAngles = SCNVector3(90.degreesToRadians,0,0) //The floor is rotated
+//        floor.geometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z)) //Makes the floor floor(plane)-shaped. The x and the z values are used, cuz that are the ground values (y is up in the air)
+//        floor.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "Material")
+//        floor.geometry?.firstMaterial?.isDoubleSided = true
+//        floor.position = SCNVector3(anchor.center.x, anchor.center.y, anchor.center.z)
+//        return floor
+//    }
     
     func removeNode(named: String) {
         arView.scene.rootNode.enumerateChildNodes { (node, _ ) in
@@ -196,29 +211,29 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
     }
     
     
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
-        print("New Plane Anchor with extent:", anchorPlane.extent)
-        let floor = createFloor(anchor: anchorPlane)
-        node.addChildNode(floor)
-        
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
-        print("Plane Anchor Updated with extent:", anchorPlane.extent)
-        removeNode(named: "floor")
-        print("New Plane Anchor with extent:", anchorPlane.extent)
-        let floor = createFloor(anchor: anchorPlane)
-        node.addChildNode(floor)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
-        print("Plane Anchor removed with extent:", anchorPlane.extent)
-        removeNode(named: "floor ")
-        
-    }
+//    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+//        guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
+//        print("New Plane Anchor with extent:", anchorPlane.extent)
+//        let floor = createFloor(anchor: anchorPlane)
+//        node.addChildNode(floor)
+//
+//    }
+//
+//    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+//        guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
+//        print("Plane Anchor Updated with extent:", anchorPlane.extent)
+//        removeNode(named: "floor")
+//        print("New Plane Anchor with extent:", anchorPlane.extent)
+//        let floor = createFloor(anchor: anchorPlane)
+//        node.addChildNode(floor)
+//    }
+//
+//    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+//        guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
+//        print("Plane Anchor removed with extent:", anchorPlane.extent)
+//        removeNode(named: "floor ")
+//
+//    }
     
     @objc func handleTap(sender: UITapGestureRecognizer) {
         let tappedView = sender.view as! SCNView
@@ -233,9 +248,35 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
         }
         
     }
+    
+    // DIFFUSE: The diffuse property specifies the amount of light diffusely reflected from the surface
+    
+    //SPECULAR: The specuar property specifies the amount of light to reflect in a mirror-like manner
+    
+    //EMMISION: The emmision property specifies the amount of light the material emits. The emmision does not light up other surfaces in the scene
+    
+    //NORMAL: The normal property specifies the surface orientation
+    
+    func addEarth() {
+        let earthNode = SCNNode()
+        earthNode.name = "earth"
+        earthNode.geometry = SCNSphere(radius: 0.2)
+        earthNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "EarthDiffuse")
+        earthNode.geometry?.firstMaterial?.specular.contents = #imageLiteral(resourceName: "EarthSpecular")
+        earthNode.geometry?.firstMaterial?.emission.contents = #imageLiteral(resourceName: "EarthEmmision")
+        earthNode.geometry?.firstMaterial?.normal.contents = #imageLiteral(resourceName: "EarthNormal")
+        earthNode.position = SCNVector3(0,0,-0.5)
+        arView.scene.rootNode.addChildNode(earthNode)
+        
+        let rotate = SCNAction.rotateBy(x: 0, y: CGFloat(360.degreesToRadians), z: 0, duration: 15) //Rotate the earth a full 360 degrees in 15 seconds
+        let rotateForever = SCNAction.repeatForever(rotate)
+        earthNode.runAction(rotateForever)
+    }
 
     
 }
+
+
 
 
 
