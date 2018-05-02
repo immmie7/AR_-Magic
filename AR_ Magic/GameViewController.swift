@@ -168,21 +168,50 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
         
     }
     
+    //Code to create the floor
+    func createFloor(anchor: ARPlaneAnchor) -> SCNNode {
+        let floor = SCNNode()
+        floor.name = "floor" //The name of the floor is floor
+        floor.eulerAngles = SCNVector3(90.degreesToRadians,0,0) //The floor is rotated
+        floor.geometry = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z)) //Makes the floor floor(plane)-shaped. The x and the z values are used, cuz that are the ground values (y is up in the air)
+        floor.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "Material")
+        floor.geometry?.firstMaterial?.isDoubleSided = true
+        floor.position = SCNVector3(anchor.center.x, anchor.center.y, anchor.center.z)
+        return floor
+    }
+    
+    func removeNode(named: String) {
+        arView.scene.rootNode.enumerateChildNodes { (node, _ ) in
+            if node.name == named {
+                node.removeFromParentNode()
+            }
+            
+            
+        }
+    }
+    
+    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
         print("New Plane Anchor with extent:", anchorPlane.extent)
+        let floor = createFloor(anchor: anchorPlane)
+        node.addChildNode(floor)
         
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
         print("Plane Anchor Updated with extent:", anchorPlane.extent)
-        
+        removeNode(named: "floor")
+        print("New Plane Anchor with extent:", anchorPlane.extent)
+        let floor = createFloor(anchor: anchorPlane)
+        node.addChildNode(floor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         guard let anchorPlane = anchor as? ARPlaneAnchor else { return }
         print("Plane Anchor removed with extent:", anchorPlane.extent)
+        removeNode(named: "floor ")
         
     }
 
