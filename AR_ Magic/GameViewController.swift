@@ -11,12 +11,11 @@
 import ARKit
 import LBTAComponents
 
-
 class GameViewController: UIViewController, ARSCNViewDelegate {
     
     let arView: ARSCNView = {
         let view = ARSCNView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
@@ -37,7 +36,7 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func handlePlusButtonTapped() {
         print("Tapped on plus button")
-        //addBox()
+        //addNode()
         var doesEarthNodeExistInScene = false
         arView.scene.rootNode.enumerateChildNodes { (node, _) in//Makes sure there is only one earth, like real life
             if node.name == "earth" {
@@ -70,7 +69,7 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func handleMinusButtonTapped() {
         print("Tapped on minus button")
-        removeAllNodes()
+//        removeAllNodes()
     }
 
 // RESETBUTTON
@@ -91,51 +90,51 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func handleResetButtonTapped() {
         print("Tapped on reset button")
-        resetScene()
+//        resetScene()
     }
     
     
     let configuration = ARWorldTrackingConfiguration()
     
-    //We are going to measure distance WOOOHOOEEE
-    let distanceLabel: UILabel = {
-       let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.textColor = UIColor.black
-        label.text = "Distance:"
-        
-        return label
-    }()
-    
-    //X label
-    let xLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.textColor = UIColor.red
-        label.text = "x"
-        
-        return label
-    }()
-    
-    //Y label
-    let yLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.textColor = UIColor.green
-        label.text = "y"
-        
-        return label
-    }()
-    
-    //Z label
-    let zLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.textColor = UIColor.blue
-        label.text = "z"
-        
-        return label
-    }()
+//    //We are going to measure distance WOOOHOOEEE
+//    let distanceLabel: UILabel = {
+//       let label = UILabel()
+//        label.font = UIFont.boldSystemFont(ofSize: 30)
+//        label.textColor = UIColor.black
+//        label.text = "Distance:"
+//        
+//        return label
+//    }()
+//    
+//    //X label
+//    let xLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.boldSystemFont(ofSize: 30)
+//        label.textColor = UIColor.red
+//        label.text = "x"
+//        
+//        return label
+//    }()
+//    
+//    //Y label
+//    let yLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.boldSystemFont(ofSize: 30)
+//        label.textColor = UIColor.green
+//        label.text = "y"
+//        
+//        return label
+//    }()
+//    
+//    //Z label
+//    let zLabel: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.boldSystemFont(ofSize: 30)
+//        label.textColor = UIColor.blue
+//        label.text = "z"
+//        
+//        return label
+//    }()
     
 //    let centerImageView: UIImageView = {
 //       let view = UIImageView()
@@ -204,19 +203,19 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
         
         
         //Distance label
-        view.addSubview(distanceLabel)
-        distanceLabel.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, topConstant: 50, leftConstant: 35, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 24)
-        
-        //labels
-        view.addSubview(xLabel)
-        view.addSubview(yLabel)
-        view.addSubview(zLabel)
-        
-        xLabel.anchor(distanceLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 24, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 24)
-        
-        yLabel.anchor(xLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 24, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 24)
-        
-        zLabel.anchor(yLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 24, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 24)
+//        view.addSubview(distanceLabel)
+//        distanceLabel.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, topConstant: 50, leftConstant: 35, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 24)
+//
+//        //labels
+//        view.addSubview(xLabel)
+//        view.addSubview(yLabel)
+//        view.addSubview(zLabel)
+//
+//        xLabel.anchor(distanceLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 24, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 24)
+//
+//        yLabel.anchor(xLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 24, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 24)
+//
+//        zLabel.anchor(yLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 24, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 24)
         
 //        view.addSubview(centerImageView)
 //        centerImageView.anchorCenterSuperview()
@@ -225,36 +224,35 @@ class GameViewController: UIViewController, ARSCNViewDelegate {
     
     }
     
-    func addBox() {
-        let boxNode = SCNNode()
-        boxNode.geometry = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0.0002) //width, height and length in meters
-        boxNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "Material")
-        boxNode.position = SCNVector3(Float.random(min: -0.5, max: 0.5),Float.random(min: -0.5, max: 0.5),Float.random(min: -0.5, max: 0.5)) //x,y,z coordinates in meters
-        boxNode.name = "node"
-        arView.scene.rootNode.addChildNode(boxNode)
-        
-    }
-    
-    func removeAllNodes() {
-        arView.scene.rootNode.enumerateChildNodes { (node, _ ) in
-            if node.name == "node" {
-                node.removeFromParentNode()
-            }
-
-            
-        }
-    }
-    
-    func resetScene() {
-        arView.session.pause()
-        arView.scene.rootNode.enumerateChildNodes { (node, _) in
-            if node.name == "node" {
-                node.removeFromParentNode()
-            }
-        }
-        arView.session.run(configuration, options: [.removeExistingAnchors, .resetTracking])
-        
-    }
+//    func addNode() {
+//        let nodeNode = SCNNode()
+//        nodeNode.geometry = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0.0002) //width, height and length in meters
+//        nodeNode.geometry?.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "Material")
+//        nodeNode.position = SCNVector3(Float.random(min: -0.5, max: 0.5),Float.random(min: -0.5, max: 0.5),Float.random(min: -0.5, max: 0.5)) //x,y,z coordinates in meters
+//        nodeNode.name = "node"
+//        arView.scene.rootNode.addChildNode(nodeNode)
+//
+//    }
+//
+//    func removeAllNodes() {
+//        arView.scene.rootNode.enumerateChildNodes { (node, _ ) in
+//            if node.name == "node" {
+//                node.removeFromParentNode()
+//            }
+//
+//
+//        }
+//    }
+//
+//    func resetScene() {
+//        arView.session.pause()
+//        arView.scene.rootNode.enumerateChildNodes { (node, _) in
+//            if node.name == "node" {
+//                node.removeFromParentNode()
+//            }
+//        }
+//        arView.session.run(configuration, options: [.removeExistingAnchors, .resetTracking])
+//    }
     
 //    //Code to create the floor
 //    func createFloor(anchor: ARPlaneAnchor) -> SCNNode {

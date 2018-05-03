@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		766E48D1AF3BB6F9E7679137 /* Pods_AR__Magic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EDE51D4E5D396A7296FB65 /* Pods_AR__Magic.framework */; };
+		A31F0854209B25D500D089AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31F0853209B25D500D089AF /* LaunchScreen.storyboard */; };
 		A34AD3AF208E0DF1006F8781 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34AD3AE208E0DF1006F8781 /* Extension.swift */; };
 		A3B74F812099C3A30057E2A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B74F802099C3A30057E2A3 /* Assets.xcassets */; };
 		A3B9FD72208B6F3B00AE9626 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FD71208B6F3B00AE9626 /* AppDelegate.swift */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		6275960351C3F0F3EDF84744 /* Pods-AR_ Magic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AR_ Magic.release.xcconfig"; path = "Pods/Target Support Files/Pods-AR_ Magic/Pods-AR_ Magic.release.xcconfig"; sourceTree = "<group>"; };
+		A31F0853209B25D500D089AF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A34AD3AE208E0DF1006F8781 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		A3B74F802099C3A30057E2A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		A3B9FD6E208B6F3B00AE9626 /* AR_ Magic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AR_ Magic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 				A3B9FD71208B6F3B00AE9626 /* AppDelegate.swift */,
 				A3B74F802099C3A30057E2A3 /* Assets.xcassets */,
 				A3B9FD7D208B6F3C00AE9626 /* Info.plist */,
+				A31F0853209B25D500D089AF /* LaunchScreen.storyboard */,
 				A3B9FD83208DD5AA00AE9626 /* GameViewController.swift */,
 				A34AD3AE208E0DF1006F8781 /* Extension.swift */,
 			);
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3B74F812099C3A30057E2A3 /* Assets.xcassets in Resources */,
+				A31F0854209B25D500D089AF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +338,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "FBP.AR--Magic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -356,6 +361,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "FBP.AR--Magic";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
