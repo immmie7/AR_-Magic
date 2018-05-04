@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		766E48D1AF3BB6F9E7679137 /* Pods_AR__Magic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EDE51D4E5D396A7296FB65 /* Pods_AR__Magic.framework */; };
+		766E48D1AF3BB6F9E7679137 /* Pods_AR__Magic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EDE51D4E5D396A7296FB65 /* Pods_AR__Magic.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A34AD3AF208E0DF1006F8781 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34AD3AE208E0DF1006F8781 /* Extension.swift */; };
 		A3B9FD72208B6F3B00AE9626 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B9FD71208B6F3B00AE9626 /* AppDelegate.swift */; };
 		A3B9FD79208B6F3B00AE9626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B9FD78208B6F3B00AE9626 /* Assets.xcassets */; };
